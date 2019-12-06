@@ -1,7 +1,9 @@
 package com.hilti.ta.pages.components;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import com.hilti.ta.utils.WebDriverFactory;
 
@@ -23,7 +25,10 @@ public class HeaderComponent {
 	public void verifyCategoryIsPresentInProductNavigation(final String categoryName) {
 		final By categoryNavigationItem = By.xpath(String.format(CATEGORY_NAVIGATION_ITEM_PATTERN, categoryName));
 
-		WebDriverFactory.getDriver().findElement(categoryNavigationItem);
+		final WebElement webElement = WebDriverFactory.getDriver().findElement(categoryNavigationItem);
+
+		Assert.assertNotNull(webElement, String.format("Web element not found for locator: %s", categoryNavigationItem));
+		Assert.assertTrue(webElement.isDisplayed(), String.format("Web element not visible for locator: %s", categoryNavigationItem));
 	}
 
 	public void waitForProductNavigationToAppear() {
