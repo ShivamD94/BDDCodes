@@ -12,12 +12,12 @@ It consists of a common web UI test automation stack:
 
 Please make sure you have the following tools setup in your local environment:
 
-### Java 8
+#### Java 8
 
 - JDK 8 https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 - JAVA_HOME environment variable should be set and point to JDK 8
 
-### Maven
+#### Maven
 
 Please make use you have maven 3 installed and available in your command line.
 There are many ways to install maven locally:
@@ -30,7 +30,7 @@ You can verify the proper installation by executing the following command:
 mvn --version
 ```
 
-### Verify local environment
+#### Verify local environment
 
 This project contains some sample UI tests, which can be executed with the following command:
 ```bash
@@ -52,7 +52,32 @@ In case of any issues please go though installation guide above or check the Tro
 
 ## Project structure
 
+#### Feature files
+
+Gherkin feature files are located in the [resources/features](src/test/resources/features) directory.
+
+#### Step classes
+
+Cucumber steps definitions are located in [com.hilti.ta.steps](src/test/java/com/hilti/ta/steps) package.
+
+#### Page Object Model
+
+Pages and components definition can be found under [com.hilti.ta.pages](src/test/java/com/hilti/ta/pages) package.
+
+#### Utility classes
+
+Utility classes/enums (e.g. WebDriverFactory) can be found under [com.hilti.ta.utils](src/test/java/com/hilti/ta/utils) package.
+
+#### TestNG runner
+
+There is a single TestNG tests runner located in [com.hilti.ta](src/test/java/com/hilti/ta/RunCucumberTest.java) Cucumber options are defined on there.
+
+#### Drivers location
+
+Chrome drivers for Windows and Mac are located in the [resources/drivers](src/test/resources/drivers) directory.
 
 ## Troubleshooting 
 
-- Chrome driver
+#### Chrome driver outdated
+In case Chrome driver becomes outdated, feel free to update it with the latest version in the [resources/drivers](src/test/resources/drivers) directory.
+Please remember to maintain the driver file name.
