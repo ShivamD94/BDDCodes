@@ -12,9 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Provides methods for managing the {@link WebDriver} instances.
  */
 public class WebDriverFactory {
 
@@ -32,6 +30,9 @@ public class WebDriverFactory {
 		// EMPTY
 	}
 
+	/**
+	 * Initializes {@link ChromeDriver} for current thread.
+	 */
 	public static void initialize() {
 		System.setProperty("webdriver.chrome.driver", getWebDriverPath());
 
@@ -46,10 +47,19 @@ public class WebDriverFactory {
 		setupWaits(webDriver);
 	}
 
+	/**
+	 * Retrieves an instance of {@link WebDriver} for current thread. May return {@code null} in case the
+	 * {@link WebDriverFactory#initialize()} method is not called before for the current thread.
+	 * 
+	 * @return WebDriver instance {@link WebDriver}
+	 */
 	public static WebDriver getDriver() {
 		return webDrivers.get();
 	}
 
+	/**
+	 * Quits driver for current thread, if present.
+	 */
 	public static void quitCurrentDriver() {
 		final WebDriver webDriver = webDrivers.get();
 		if (webDriver != null) {
@@ -58,10 +68,22 @@ public class WebDriverFactory {
 		}
 	}
 
+	/**
+	 * Gets default {@link WebDriverWait} instance with default wait of 10 seconds and 50 milliseconds retry interval.
+	 * 
+	 * @return {@link WebDriverWait}
+	 */
 	public static WebDriverWait getWebDriverWait() {
 		return getWebDriverWait(0);
 	}
 
+	/**
+	 * Gets customized {@link WebDriverWait} instance. The default retry interval is 50 milliseconds
+	 * 
+	 * @param seconds
+	 *            wait time in seconds
+	 * @return {@link WebDriverWait}
+	 */
 	public static WebDriverWait getWebDriverWait(final int seconds) {
 		final int wait = seconds > 0 ? seconds : DEFAULT_WEBDRIVER_WAIT_TIME;
 		return new WebDriverWait(webDrivers.get(), wait, 50);
@@ -104,8 +126,7 @@ public class WebDriverFactory {
 	private static String getWebDriverPath() {
 		final OSEnum os = OSEnum.getOS();
 
-		final String driverLocation = Paths
-				.get(System.getProperty("user.dir"), "target", "test-classes", "drivers", "ChromeDriver").toString();
+		final String driverLocation = Paths.get(System.getProperty("user.dir"), "target", "test-classes", "drivers", "ChromeDriver").toString();
 
 		switch (os) {
 			case MACOS:

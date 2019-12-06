@@ -6,17 +6,14 @@ import com.hilti.ta.utils.Country;
 import io.cucumber.java.en.Given;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Cucumber steps definition class for general purpose steps.
  */
 public class GeneralSteps {
-
 
 	private Homepage homepage = new Homepage();
 
 	@Given("User opens Hilti website for country (.+)")
 	public void userOpensHiltiWebsite(final Country country) {
-		homepage.navigateTo(country.getDomain());
+		homepage.navigateTo(country);
 	}
 }

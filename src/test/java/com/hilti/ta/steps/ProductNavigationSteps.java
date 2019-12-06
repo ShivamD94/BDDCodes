@@ -6,9 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Cucumber steps definition class related to Product Navigation functionality.
  */
 public class ProductNavigationSteps {
 

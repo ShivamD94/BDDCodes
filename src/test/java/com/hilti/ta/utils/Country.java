@@ -1,9 +1,7 @@
 package com.hilti.ta.utils;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Enumeration class containing part of countries supported by HILTI website.
  */
 public enum Country {
 	US("United States", ".com"),

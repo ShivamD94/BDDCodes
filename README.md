@@ -76,6 +76,12 @@ There is a single TestNG tests runner located in [com.hilti.ta](src/test/java/co
 
 Chrome drivers for Windows and Mac are located in the [resources/drivers](src/test/resources/drivers) directory.
 
+#### Supported reporting
+
+- XML: target/cucumber-report.xml
+- JSON: target/cucumber-report.json
+- cukes: target/cukes/index.html
+
 ## Troubleshooting 
 
 #### Chrome driver outdated

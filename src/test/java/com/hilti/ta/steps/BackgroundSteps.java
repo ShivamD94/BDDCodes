@@ -7,9 +7,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Cucumber hook steps definition class responsible for actions taken before and after test execution.
  */
 public class BackgroundSteps {
 

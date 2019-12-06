@@ -1,9 +1,7 @@
 package com.hilti.ta.utils;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Enumeration class for indication of the current operating system.
  */
 public enum OSEnum {
 	MACOS, WINDOWS;

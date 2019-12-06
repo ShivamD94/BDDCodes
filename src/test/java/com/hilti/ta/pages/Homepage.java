@@ -1,17 +1,22 @@
 package com.hilti.ta.pages;
 
+import com.hilti.ta.utils.Country;
 import com.hilti.ta.utils.WebDriverFactory;
 
 /**
- * TODO
- *
- * @author jakub.ptak@externals.hilti.com
+ * Page Object Model representing Homepage.
  */
 public class Homepage {
 
 	private static final String HILTI_URL = "https://www.hilti";
 
-	public void navigateTo(final String domain) {
-		WebDriverFactory.getDriver().get(HILTI_URL + domain);
+	/**
+	 * Opens homepage for given country.
+	 * 
+	 * @param country
+	 *            {@link Country}
+	 */
+	public void navigateTo(final Country country) {
+		WebDriverFactory.getDriver().get(HILTI_URL + country.getDomain());
 	}
 }
