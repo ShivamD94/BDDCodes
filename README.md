@@ -87,3 +87,14 @@ Chrome drivers for Windows and Mac are located in the [resources/drivers](src/te
 #### Chrome driver outdated
 In case Chrome driver becomes outdated, feel free to update it with the latest version in the [resources/drivers](src/test/resources/drivers) directory.
 Please remember to maintain the driver file name.
+
+#### Chrome driver not executable
+In case you will see a following error while running the tests:
+```bash
+runScenario(com.hilti.ta.RunCucumberTest): The driver is not executable
+```
+Then issue a following command
+
+```bash
+chmod +x target/test-classes/drivers/ChromeDriverMac 
+```
