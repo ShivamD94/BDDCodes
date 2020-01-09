@@ -2,6 +2,7 @@
 
 Following project is used as an interview evaluation tool. 
 It consists of a common web UI test automation stack:
+
 - Java 8
 - Selenium 3.141.59
 - Cucumber 4.7
@@ -21,6 +22,7 @@ Please make sure you have the following tools setup in your local environment:
 
 Please make use you have maven 3 installed and available in your command line.
 There are many ways to install maven locally:
+
 - download [Maven](https://maven.apache.org/download.cgi) and add to PATH
 - MAC: [Homebrew maven formula](https://formulae.brew.sh/formula/maven)
 - Windows: [Chocolatey maven package](https://chocolatey.org/packages/maven)
