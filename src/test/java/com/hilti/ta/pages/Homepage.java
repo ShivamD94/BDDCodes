@@ -6,7 +6,7 @@ import com.hilti.ta.utils.WebDriverFactory;
 /**
  * Page Object Model representing Homepage.
  */
-public class Homepage {
+public class Homepage extends PageObject {
 
 	private static final String HILTI_URL = "https://www.hilti";
 
