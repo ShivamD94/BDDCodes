@@ -15,6 +15,9 @@
         <cucumber.version>4.7.2</cucumber.version>
         <testng.version>6.14.3</testng.version>
         <selenium.version>3.141.59</selenium.version>
+        <jsoup.version>1.11.3</jsoup.version>
+        <commons.lang.version>3.0</commons.lang.version>
+        <commons.collection.version>4.3</commons.collection.version>
     </properties>
 
     <dependencies>
@@ -41,6 +44,22 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons.collection.version}</version>
         </dependency>
     </dependencies>
 

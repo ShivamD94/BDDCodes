@@ -5,12 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import com.hilti.ta.pages.PageObject;
 import com.hilti.ta.utils.WebDriverFactory;
 
 /**
  * Page Object Model header component that appears on all website's pages.
  */
-public class HeaderComponent {
+public class HeaderComponent extends PageObject {
 
 	private static final String CATEGORY_NAVIGATION_ITEM_PATTERN = "//li[@class='m-nav-secondary-stage-item is-active']//a[@class='js-navigation-link']/span[contains(text(), '%s')]";
 
