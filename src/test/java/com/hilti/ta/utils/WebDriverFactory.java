@@ -1,7 +1,6 @@
 package com.hilti.ta.utils;
 
 import java.awt.Toolkit;
-import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -10,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * Provides methods for managing the {@link WebDriver} instances.
@@ -34,7 +35,7 @@ public class WebDriverFactory {
 	 * Initializes {@link ChromeDriver} for current thread.
 	 */
 	public static void initialize() {
-		System.setProperty("webdriver.chrome.driver", getWebDriverPath());
+		WebDriverManager.chromedriver().setup();
 
 		final ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
@@ -121,22 +122,6 @@ public class WebDriverFactory {
 		webDriver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIME, TimeUnit.SECONDS);
 		webDriver.manage().timeouts().setScriptTimeout(SCRIPT_LOAD_TIME, TimeUnit.SECONDS);
 		webDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_TIME, TimeUnit.SECONDS);
-	}
-
-	private static String getWebDriverPath() {
-		final OSEnum os = OSEnum.getOS();
-
-		final String driverLocation = Paths.get(System.getProperty("user.dir"), "target", "test-classes", "drivers", "ChromeDriver").toString();
-
-		switch (os) {
-			case MACOS:
-				return driverLocation + "Mac";
-			case WINDOWS:
-				return driverLocation + "Win.exe";
-			default:
-				throw new RuntimeException("Unsupported operating system: " + os);
-		}
-
 	}
 
 	private static Dimension getScreenResolution() {
