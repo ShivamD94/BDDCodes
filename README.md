@@ -87,8 +87,9 @@ a. Resolution Width :
 		Maven Parameter : resolution.width
 		Default Value : 1920
 	
-a. Rersolution Height :
+b. Rersolution Height :
 		Maven parameter : resolution.height
 		Default Value : 1080
+		
 	Example usage :
 	   mvn install -Dresolution.width=width.size -Dresolution.height=height.size
