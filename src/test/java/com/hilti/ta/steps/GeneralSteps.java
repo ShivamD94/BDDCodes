@@ -56,6 +56,7 @@ public class GeneralSteps {
  public void user_navigates_to_product_page_for(String productCode) {
      // Write code here that turns the phrase above into concrete actions
 	 productpage.navigateTo(productCode);
+	 WebDriverFactory.getWebDriverWait(15);
  }
  
 

@@ -1,7 +1,11 @@
 package com.hilti.ta.utils;
 
 import java.awt.Toolkit;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
@@ -10,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.io.Closeables;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -101,7 +107,7 @@ public class WebDriverFactory {
 	private static void setupBrowser(final WebDriver webDriver) {
 
 		final Dimension screenResolution = getScreenResolution();
-		final Dimension targetResolution = new Dimension(1920, 1080);
+		final Dimension targetResolution = getProvidedDimension();//new Dimension(1920, 1080);
 		final OSEnum os = OSEnum.getOS();
 
 		switch (os) {
@@ -137,6 +143,40 @@ public class WebDriverFactory {
 		final int width = (int) screenSize.getWidth();
 		final int height = (int) screenSize.getHeight();
 		return new Dimension(width, height);
+	}
+	
+	
+	private static Dimension getProvidedDimension() {
+		
+
+    	System.out.println("Detecting given platform resolution....");
+    	/**
+    	 * Trying to read Resolution size from properties files
+    	 */
+    	//ClassPathResource resource = new ClassPathResource( "app.properties" );
+    	Properties p = new Properties();
+    	InputStream inputStream = null;
+    	try {
+    		/**
+    		 * This is path where app.properties is generated after filtering : target/classes/app.properties
+    		 */
+    	    inputStream = new FileInputStream("target/classes/app.properties");
+    	    p.load( inputStream );
+    	} catch ( IOException e ) {
+    	    e.printStackTrace();
+    	} finally {
+    	    Closeables.closeQuietly( inputStream );
+    	}
+    	
+    	int width = Integer.parseInt(p.getProperty("resolution.width")) ;
+    	System.out.println("Platform Resolution width entered is : " + width );
+    	
+    	
+    	int height = Integer.parseInt(p.getProperty("resolution.height")) ;
+    	System.out.println("Platform Resolution height entered is : " + height );
+    	
+    	return new Dimension(width, height);
+		
 	}
 	
 	

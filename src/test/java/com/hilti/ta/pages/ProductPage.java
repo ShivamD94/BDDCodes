@@ -38,7 +38,8 @@ public class ProductPage extends PageObject {
 	
 	public void selectCartridgeColor(String color) {
 		
-		List <WebElement> cColor=WebDriverFactory.getDriver().findElements(cartColor);
+		WebDriverFactory.getWebDriverWait(10);
+	   List <WebElement> cColor=WebDriverFactory.getDriver().findElements(cartColor);
 		for(WebElement ele : cColor)
 		{
 			String cartridgecolor = ele.getText();
@@ -66,7 +67,7 @@ public class ProductPage extends PageObject {
 	
 	
 	public void selectquantity(String quant) {
-		WebDriverFactory.getWebDriverWait();
+		WebDriverFactory.getWebDriverWait(10);
 		WebDriverFactory.getDriver().findElement(quantity).sendKeys(Keys.BACK_SPACE);
 		WebDriverFactory.getDriver().findElement(quantity).sendKeys(quant);
 

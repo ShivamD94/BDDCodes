@@ -19,6 +19,9 @@
         <commons.lang.version>3.0</commons.lang.version>
         <commons.collection.version>4.3</commons.collection.version>
         <webdriver.manager.version>3.8.1</webdriver.manager.version>
+        <resolution.width>1920</resolution.width>
+        <resolution.height>1080</resolution.height>
+	  
     </properties>
 
     <dependencies>
@@ -70,7 +73,25 @@
     </dependencies>
 
     <build>
+     <resources>
+	        <resource>
+	            <directory>src/test/resources</directory>
+	            <filtering>true</filtering>
+	             <includes>
+        			<include>app.properties</include>
+      			</includes>
+	        </resource>
+	    </resources>
+	    
+	    
         <plugins>
+         <!-- maven resource plugin -->	
+        	<plugin>
+          		<groupId>org.apache.maven.plugins</groupId>
+          		<artifactId>maven-resources-plugin</artifactId>
+          		<version>3.0.2</version>
+        	</plugin>
+        	
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -81,6 +102,8 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            
+           
         </plugins>
     </build>
 </project>
