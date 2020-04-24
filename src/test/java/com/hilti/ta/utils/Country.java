@@ -10,7 +10,8 @@ public enum Country {
 	DE("Germany", ".de", Locale.GERMANY),
 	RU("Russia", ".ru", new Locale("ru", "RU")),
 	JP("Japan", ".co.jp", Locale.JAPAN),
-	CN("China", ".cn", Locale.SIMPLIFIED_CHINESE);
+	CN("China", ".cn", Locale.SIMPLIFIED_CHINESE),
+	CA("Canada",".ca", Locale.CANADA);
 
 	private String name;
 	private String domain;

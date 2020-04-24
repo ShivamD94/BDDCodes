@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -55,6 +56,7 @@ public class WebDriverFactory {
 	 * @return WebDriver instance {@link WebDriver}
 	 */
 	public static WebDriver getDriver() {
+		
 		return webDrivers.get();
 	}
 
@@ -90,6 +92,12 @@ public class WebDriverFactory {
 		return new WebDriverWait(webDrivers.get(), wait, 50);
 	}
 
+	public static void scrollWindow(int pixel) {
+        WebDriver driver = getDriver();
+		JavascriptExecutor je = (JavascriptExecutor)driver;
+		je.executeScript("scroll(0,"+pixel+")");
+	}
+	
 	private static void setupBrowser(final WebDriver webDriver) {
 
 		final Dimension screenResolution = getScreenResolution();
@@ -130,4 +138,6 @@ public class WebDriverFactory {
 		final int height = (int) screenSize.getHeight();
 		return new Dimension(width, height);
 	}
+	
+	
 }
