@@ -25,20 +25,7 @@ public class CartPage extends PageObject{
 		
 		  prodColor = By.xpath("//tbody["+index+"]//tr[1]//td[2]//div[1]//strong[1]");
 		  return WebDriverFactory.getDriver().findElement(prodColor).getText();
-//		String productColor = null;
-//		switch(index) {
-//		case 0 : productColor = getProductColor1();
-//		break;
-//		case 1 : productColor = getProd2Color();
-//		break ;
-//		case 2 : productColor = getProd3Color();
-//		break ;
-//		default :
-//			productColor = null;
-//		
-//		}
-//		
-//		return productColor;
+		
 		
 	}
 	

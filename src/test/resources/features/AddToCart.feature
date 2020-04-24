@@ -1,7 +1,7 @@
 @Smoke
 Feature: Add to cart on product page
 
-  Scenario Outline: Verify Hilti Homepage for country <country>  
+  Scenario Outline: Add product to cart and verify cart content. 
     Given User opens Hilti website for country <country>
     When User navigates to product page for "<productCode>"
     And User adds to cart products with given properties for <country> with following data
