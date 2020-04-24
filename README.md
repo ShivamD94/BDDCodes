@@ -79,3 +79,16 @@ There is a single TestNG tests runner located in [com.hilti.ta](src/test/java/co
 - XML: target/cucumber-report.xml
 - JSON: target/cucumber-report.json
 - cukes: target/cukes/index.html
+
+#### Instruction For providing Task2 resolutions
+-To provide custom resolutions for driver to initialise, use following paramter in maven build :
+
+a. Resolution Width :
+		Maven Parameter : resolution.width
+		Default Value : 1920
+	
+a. Rersolution Height :
+		Maven parameter : resolution.height
+		Default Value : 1080
+	Example usage :
+	   mvn install -Dresolution.width=width.size -Dresolution.height=height.size
