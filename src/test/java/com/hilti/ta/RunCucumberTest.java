@@ -9,9 +9,8 @@ import io.cucumber.testng.CucumberOptions;
 		strict = true,
 
 		tags = { "@Smoke" },
-		dryRun = true ,
+		dryRun = false ,
 		monochrome = true)
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
 }
 
-//testautomation-interview-project/src/test/java/com/hilti/ta/steps/
