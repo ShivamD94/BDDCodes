@@ -1,4 +1,4 @@
-#@Smoke @Sample
+@Smoke @Sample
 Feature: Sample feature to demonstrate the capabilities of this project
 
   Scenario Outline: Verify Hilti Homepage for country <country>

@@ -91,6 +91,7 @@ public void user_adds_to_cart_products_with_given_properties(final Country count
 @When("User navigates to cart page.")
 public void user_navigates_to_cart_page() {
 	productpage.GotoShoppingCart();
+	WebDriverFactory.getWebDriverWait();
 
 }
 
